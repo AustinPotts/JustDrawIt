@@ -89,15 +89,15 @@ import UIKit
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = false
         view.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
-        view.layer.cornerRadius = 40
-        view.layer.shadowRadius = 40
+        view.layer.cornerRadius = 60
+        view.layer.shadowRadius = 60
         return view
     }()
     
     private var signUpView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
         view.layer.cornerRadius =   30
         return view
     }()
@@ -141,10 +141,10 @@ import UIKit
     private func setupConstraints() {
         
         addSubview(loginView)
-        loginView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 220).isActive = true
+        loginView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 150).isActive = true
         loginView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         loginView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        loginView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -200).isActive = true
+        loginView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -230).isActive = true
         
         loginView.addSubview(loginLabel)
         loginLabel.topAnchor.constraint(equalTo: loginView.topAnchor, constant: 20).isActive = true
@@ -192,9 +192,10 @@ import UIKit
         
         
         addSubview(signUpView)
-        signUpView.topAnchor.constraint(equalTo: loginView.bottomAnchor, constant: 100).isActive = true
-        signUpView.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 20).isActive = true
-        signUpView.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -20).isActive = true
+        signUpView.topAnchor.constraint(equalTo: loginButtonView.bottomAnchor, constant: 10).isActive = true
+        signUpView.leadingAnchor.constraint(equalTo: loginButtonView.leadingAnchor, constant: 20).isActive = true
+        signUpView.trailingAnchor.constraint(equalTo: loginButtonView.trailingAnchor, constant: -20).isActive = true
+        signUpView.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
         
         signUpView.addSubview(signUpButton)
