@@ -10,6 +10,9 @@ import UIKit
 
 @IBDesignable class DrawView: UIView {
 
+    
+     let backgroundImageView: UIImageView = UIImageView()
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupConstraints()
@@ -43,7 +46,8 @@ import UIKit
         label.font = UIFont.systemFont(ofSize: 25)
 
         label.text = "Login To Flight Hedge"
-        label.textColor = .black
+        label.textColor = .white
+
         label.textAlignment = .center
         return label
     }()
@@ -97,7 +101,7 @@ import UIKit
     private var signUpView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         view.layer.cornerRadius =   30
         return view
     }()
@@ -107,7 +111,7 @@ import UIKit
     private var loginButtonView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         view.layer.cornerRadius =   30
         return view
     }()
@@ -140,8 +144,16 @@ import UIKit
     
     private func setupConstraints() {
         
+        addSubview(backgroundImageView)
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true //background leading anchor equal to view leading anchor
+        backgroundImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        backgroundImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        backgroundImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        backgroundImageView.image = UIImage(named: "Flight2")
+        
         addSubview(loginView)
-        loginView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 150).isActive = true
+        loginView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 130).isActive = true
         loginView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         loginView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         loginView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -230).isActive = true
@@ -192,7 +204,7 @@ import UIKit
         
         
         addSubview(signUpView)
-        signUpView.topAnchor.constraint(equalTo: loginButtonView.bottomAnchor, constant: 10).isActive = true
+        signUpView.topAnchor.constraint(equalTo: loginButtonView.bottomAnchor, constant: 20).isActive = true
         signUpView.leadingAnchor.constraint(equalTo: loginButtonView.leadingAnchor, constant: 20).isActive = true
         signUpView.trailingAnchor.constraint(equalTo: loginButtonView.trailingAnchor, constant: -20).isActive = true
         signUpView.heightAnchor.constraint(equalToConstant: 70).isActive = true
